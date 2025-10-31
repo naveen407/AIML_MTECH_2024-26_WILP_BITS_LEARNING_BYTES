@@ -1,0 +1,29 @@
+import requests
+
+# The model you've pulled locally via Ollama, e.g., 'llama3', 'mistral', etc.
+OLLAMA_MODEL = "llama3.2"
+OLLAMA_URL = f"http://localhost:11434/api/generate"
+
+def classify_sentiment(text):
+    prompt = f"Classify the sentiment of the following text as Positive, Negative, or Neutral:\n\n{text}. Provide only sentiment classification and do not provide any other text in response"
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False
+    }
+    response = requests.post(OLLAMA_URL, json=payload)
+    response.raise_for_status()
+    result = response.json()["response"]
+    return result.strip()
+
+# Example usage
+if __name__ == "__main__":
+
+    while True:
+        user_input = input("Enter text to analyze sentiment (enter q to quit): ")
+        if user_input=='q':
+            break
+        else:
+
+            sentiment = classify_sentiment(user_input)
+            print(f"Sentiment: {sentiment}")

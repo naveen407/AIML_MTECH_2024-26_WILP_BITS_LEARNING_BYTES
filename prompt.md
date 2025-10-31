@@ -1,0 +1,1 @@
+Generate SWCT test cases for the function CalculateSpeed(u16 distance, u16 time) with test objectives such as zero division, max input values, and normal operation. Include input/output and rationale.

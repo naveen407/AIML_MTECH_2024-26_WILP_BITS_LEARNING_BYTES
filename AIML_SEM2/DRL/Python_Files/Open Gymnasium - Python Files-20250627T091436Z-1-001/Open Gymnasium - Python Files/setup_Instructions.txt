@@ -1,0 +1,19 @@
+Create a virtual environment
+
+python -m venv rl-env
+.\rl-env\Scripts\activate
+
+Upgrade pip
+
+python -m pip install --upgrade pip
+
+
+Environment Type	Install Command
+Classic Control		pip install gymnasium[classic-control]
+Toy Text			pip install gymnasium[toy-text]
+Box2D (LunarLander)	pip install gymnasium[box2d] or pip install Box2D
+MuJoCo				pip install gymnasium[mujoco]
+Atari				pip install "gymnasium[atari,accept-rom-license]"
+Plotting (optional)	pip install matplotlib
+
+
